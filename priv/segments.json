@@ -1,0 +1,512 @@
+{
+  "Release": "UNIVERSAL",
+  "UNA": {
+    "Elements": [
+      {
+        "Id": "S000",
+        "Name": "UNA1",
+        "Desc": "TOKEN DEFINITIONS",
+        "Required": true,
+        "Components": [
+          {
+            "Id": "S000a",
+            "Name": "UNA1.1",
+            "Desc": "Component seperator",
+            "Required": true
+          },
+          {
+            "Id": "S000b",
+            "Name": "UNA1.2",
+            "Desc": "Element seperator",
+            "Required": true
+          },
+          {
+            "Id": "S000c",
+            "Name": "UNA1.3",
+            "Desc": "Decimal seperator",
+            "Required": true
+          },
+          {
+            "Id": "S000d",
+            "Name": "UNA1.4",
+            "Desc": "Release character",
+            "Required": true
+          },
+          {
+            "Id": "S000e",
+            "Name": "UNA1.5",
+            "Desc": "Segment seperator",
+            "Required": true
+          }
+        ]
+      }
+    ]
+  },
+  "UNB": {
+    "Elements": [
+      {
+        "Id": "S001",
+        "Name": "UNB1",
+        "Desc": "SYNTAX IDENTIFIER",
+        "Required": true,
+        "Components": [
+          {
+            "Id": "0001",
+            "Name": "UNB1.1",
+            "Desc": "Syntax identifier",
+            "Required": true,
+            "MinLength": 1,
+            "MaxLength": 4,
+            "QualifierRef": "Syntax identifier"
+          },
+          {
+            "Id": "0002",
+            "Name": "UNB1.2",
+            "Desc": "Syntax version number",
+            "Required": true,
+            "MinLength": 1,
+            "MaxLength": 1
+          }
+        ]
+      },
+      {
+        "Id": "S002",
+        "Name": "UNB2",
+        "Desc": "INTERCHANGE SENDER",
+        "Required": true,
+        "Components": [
+          {
+            "Id": "0004",
+            "Name": "UNB2.1",
+            "Desc": "Sender identification",
+            "Required": true,
+            "MinLength": 0,
+            "MaxLength": 35
+          },
+          {
+            "Id": "0007",
+            "Name": "UNB2.2",
+            "Desc": "Partner identification code qualifier",
+            "Required": false,
+            "MinLength": 0,
+            "MaxLength": 4,
+            "QualifierRef": "Identification code qualifier"
+          },
+          {
+            "Id": "0008",
+            "Name": "UNB2.3",
+            "Desc": "Address for reverse routing",
+            "Required": false,
+            "MinLength": 0,
+            "MaxLength": 14
+          }
+        ]
+      },
+      {
+        "Id": "S003",
+        "Name": "UNB3",
+        "Desc": "INTERCHANGE RECIPIENT",
+        "Required": true,
+        "Components": [
+          {
+            "Id": "0010",
+            "Name": "UNB3.1",
+            "Desc": "Recipient identification",
+            "Required": true,
+            "MinLength": 0,
+            "MaxLength": 35
+          },
+          {
+            "Id": "0007",
+            "Name": "UNB3.2",
+            "Desc": "Partner identification code qualifier",
+            "Required": false,
+            "MinLength": 0,
+            "MaxLength": 4,
+            "QualifierRef": "Identification code qualifier"
+          },
+          {
+            "Id": "0014",
+            "Name": "UNB3.3",
+            "Desc": "Routing address",
+            "Required": false,
+            "MinLength": 0,
+            "MaxLength": 14
+          }
+        ]
+      },
+      {
+        "Id": "S004",
+        "Name": "UNB4",
+        "Desc": "DATE/TIME OF PREPARATION",
+        "Required": true,
+        "Components": [
+          {
+            "Id": "0017",
+            "Name": "UNB4.1",
+            "Desc": "Date of preparation",
+            "Required": true,
+            "MinLength": 0,
+            "MaxLength": 6
+          },
+          {
+            "Id": "0019",
+            "Name": "UNB4.2",
+            "Desc": "Time of preparation",
+            "Required": true,
+            "MinLength": 0,
+            "MaxLength": 4
+          }
+        ]
+      },
+      {
+        "Id": "0020",
+        "Name": "UNB5",
+        "Desc": "INTERCHANGE CONTROL REFERENCE",
+        "Required": true,
+        "MinLength": 0,
+        "MaxLength": 14
+      },
+      {
+        "Id": "S005",
+        "Name": "UNB6",
+        "Desc": "RECIPIENT'S REFERENCE, PASSWORD",
+        "Required": false,
+        "Components": [
+          {
+            "Id": "0022",
+            "Name": "UNB6.1",
+            "Desc": "Recipient's reference/password",
+            "Required": true,
+            "MinLength": 0,
+            "MaxLength": 14
+          },
+          {
+            "Id": "0025",
+            "Name": "UNB6.2",
+            "Desc": "Recipient's reference/password qualifier",
+            "Required": true,
+            "MinLength": 0,
+            "MaxLength": 4,
+            "QualifierRef": "Recipient reference/password qualifier"
+          }
+        ]
+      },
+      {
+        "Id": "0026",
+        "Name": "UNB7",
+        "Desc": "APPLICATION REFERENCE",
+        "Required": false,
+        "MinLength": 0,
+        "MaxLength": 14
+      },
+      {
+        "Id": "0029",
+        "Name": "UNB8",
+        "Desc": "PROCESSING PRIORITY CODE",
+        "Required": false,
+        "MinLength": 1,
+        "MaxLength": 1,
+        "QualifierRef": "Processing priority code"
+      },
+      {
+        "Id": "0031",
+        "Name": "UNB9",
+        "Desc": " ACKNOWLEDGEMENT REQUEST",
+        "Required": false,
+        "MinLength": 1,
+        "MaxLength": 1,
+        "QualifierRef": "Acknowledgement request"
+      },
+      {
+        "Id": "0032",
+        "Name": "UNB10",
+        "Desc": "COMMUNICATIONS AGREEMENT ID",
+        "Required": false,
+        "MinLength": 0,
+        "MaxLength": 35
+      },
+      {
+        "Id": "0035",
+        "Name": "UNB11",
+        "Desc": "TEST INDICATOR",
+        "Required": false,
+        "MinLength": 1,
+        "MaxLength": 1,
+        "QualifierRef": "Test indicator"
+      }
+    ]
+  },
+  "UNH": {
+    "Elements": [
+      {
+        "Id": "0062",
+        "Name": "UNH1",
+        "Desc": "Message reference number",
+        "Required": true,
+        "MinLength": 1,
+        "MaxLength": 14
+      },
+      {
+        "Id": "S009",
+        "Name": "UNH2",
+        "Desc": "MESSAGE IDENTIFIER",
+        "Components": [
+          {
+            "Id": "0065",
+            "Name": "UNH2.1",
+            "Desc": "Message type",
+            "Required": true,
+            "MinLength": 1,
+            "MaxLength": 6,
+            "QualifierRef": "Message type"
+          },
+          {
+            "Id": "0052",
+            "Name": "UNH2.2",
+            "Desc": "Message version number",
+            "Required": true,
+            "MinLength": 1,
+            "MaxLength": 3,
+            "QualifierRef": "Message version number"
+          },
+          {
+            "Id": "0054",
+            "Name": "UNH2.3",
+            "Desc": "Message release number",
+            "Required": true,
+            "MinLength": 1,
+            "MaxLength": 3,
+            "QualifierRef": "Message release number"
+          },
+          {
+            "Id": "0051",
+            "Name": "UNH2.4",
+            "Desc": "Controlling agency, coded",
+            "Required": true,
+            "MinLength": 1,
+            "MaxLength": 3,
+            "QualifierRef": "Controlling agency, coded"
+          },
+          {
+            "Id": "0057",
+            "Name": "UNH2.5",
+            "Desc": "Association assigned code",
+            "Required": false,
+            "MinLength": 1,
+            "MaxLength": 6
+          },
+          {
+            "Id": "0110",
+            "Name": "UNH2.6",
+            "Desc": "Code list directory version number",
+            "Required": false,
+            "MinLength": 1,
+            "MaxLength": 6
+          },
+          {
+            "Id": "0113",
+            "Name": "UNH2.7",
+            "Desc": "Message type sub-function identification",
+            "Required": false,
+            "MinLength": 1,
+            "MaxLength": 6,
+            "QualifierRef": "Message type sub-function identification"
+          }
+        ]
+      },
+      {
+        "Id": "0068",
+        "Name": "UNH3",
+        "Desc": "Common access reference",
+        "Required": false,
+        "MinLength": 1,
+        "MaxLength": 35
+      },
+      {
+        "Id": "S010",
+        "Name": "UNH4",
+        "Desc": "STATUS OF THE TRANSFER",
+        "Components": [
+          {
+            "Id": "0070",
+            "Name": "UNH4.1",
+            "Desc": "Sequence of transfers",
+            "Required": true,
+            "MinLength": 1,
+            "MaxLength": 2
+          },
+          {
+            "Id": "0073",
+            "Name": "UNH4.2",
+            "Desc": "First and last transfer",
+            "Required": false,
+            "MinLength": 1,
+            "MaxLength": 1,
+            "QualifierRef": "First and last transfer"
+          }
+        ]
+      },
+      {
+        "Id": "S016",
+        "Name": "UNH5",
+        "Desc": "MESSAGE SUBSET IDENTIFICATION",
+        "Components": [
+          {
+            "Id": "0115",
+            "Name": "UNH5.1",
+            "Desc": "Message subset identification",
+            "Required": true,
+            "MinLength": 1,
+            "MaxLength": 14
+          },
+          {
+            "Id": "0116",
+            "Name": "UNH5.2",
+            "Desc": "Message subset version number",
+            "Required": false,
+            "MinLength": 1,
+            "MaxLength": 3
+          },
+          {
+            "Id": "0118",
+            "Name": "UNH5.3",
+            "Desc": "Message subset release number",
+            "Required": false,
+            "MinLength": 1,
+            "MaxLength": 3
+          },
+          {
+            "Id": "0051",
+            "Name": "UNH5.4",
+            "Desc": "Controlling agency, coded",
+            "Required": false,
+            "MinLength": 1,
+            "MaxLength": 3,
+            "QualifierRef": "Controlling agency, coded"
+          }
+        ]
+      },
+      {
+        "Id": "S017",
+        "Name": "UNH6",
+        "Desc": "MESSAGE IMPLEMENTATION GUIDELINE IDENTIFICATION",
+        "Components": [
+          {
+            "Id": "0121",
+            "Name": "UNH6.1",
+            "Desc": "Message implementation guideline identification",
+            "Required": true,
+            "MinLength": 1,
+            "MaxLength": 14
+          },
+          {
+            "Id": "0122",
+            "Name": "UNH6.2",
+            "Desc": "Message implementation guideline version number",
+            "Required": false,
+            "MinLength": 1,
+            "MaxLength": 3
+          },
+          {
+            "Id": "0124",
+            "Name": "UNH6.3",
+            "Desc": "Message implementation guideline release number",
+            "Required": false,
+            "MinLength": 1,
+            "MaxLength": 3
+          },
+          {
+            "Id": "0051",
+            "Name": "UNH6.4",
+            "Desc": "Controlling agency, coded",
+            "Required": false,
+            "MinLength": 1,
+            "MaxLength": 3,
+            "QualifierRef": "Controlling agency, coded"
+          }
+        ]
+      },
+      {
+        "Id": "S018",
+        "Name": "UNH7",
+        "Desc": "SCENARIO IDENTIFICATION",
+        "Components": [
+          {
+            "Id": "0127",
+            "Name": "UNH7.1",
+            "Desc": "Scenario identification",
+            "Required": true,
+            "MinLength": 1,
+            "MaxLength": 14
+          },
+          {
+            "Id": "0128",
+            "Name": "UNH7.2",
+            "Desc": "Scenario version number",
+            "Required": false,
+            "MinLength": 1,
+            "MaxLength": 3
+          },
+          {
+            "Id": "0130",
+            "Name": "UNH7.3",
+            "Desc": "Scenario release number",
+            "Required": false,
+            "MinLength": 1,
+            "MaxLength": 3
+          },
+          {
+            "Id": "0051",
+            "Name": "UNH7.4",
+            "Desc": "Controlling agency, coded",
+            "Required": false,
+            "MinLength": 1,
+            "MaxLength": 3,
+            "QualifierRef": "Controlling agency, coded"
+          }
+        ]
+      }
+    ]
+  },
+  "UNT": {
+    "Elements": [
+      {
+        "Id": "0074",
+        "Name": "UNT1",
+        "Desc": "Number of segments in a message",
+        "Required": true,
+        "MinLength": 1,
+        "MaxLength": 10
+      },
+      {
+        "Id": "0062",
+        "Name": "UNT2",
+        "Desc": "Message reference number",
+        "Required": true,
+        "MinLength": 1,
+        "MaxLength": 14
+      }
+    ]
+  },
+  "UNZ": {
+    "Elements": [
+      {
+        "Id": "0036",
+        "Name": "UNZ1",
+        "Desc": "INTERCHANGE CONTROL COUNT",
+        "Required": true,
+        "MinLength": 0,
+        "MaxLength": 6
+      },
+      {
+        "Id": "0020",
+        "Name": "UNZ2",
+        "Desc": "NTERCHANGE CONTROL REFERENCE",
+        "Required": true,
+        "MinLength": 0,
+        "MaxLength": 14
+      }
+    ]
+  }
+}
