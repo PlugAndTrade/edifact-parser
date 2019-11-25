@@ -5,10 +5,10 @@ defmodule EdifactParser.Component do
 
   def qualifier_definitions, do: @qualifiers_definitions
 
-  def parse([c | components], [cd | component_defs]) do
-    case parse(components, component_defs) do
+  def parse(state, [c | components], [cd | component_defs]) do
+    case parse(state, components, component_defs) do
       {:ok, parsed_components} ->
-        case parse_one(c, cd) do
+        case parse_one(state, c, cd) do
           {:ok, {cid, cval}} -> {:ok, Map.put(parsed_components, cid, cval)}
           err -> err
         end
@@ -18,11 +18,11 @@ defmodule EdifactParser.Component do
     end
   end
 
-  def parse(_, _) do
+  def parse(_, _, _) do
     {:ok, %{}}
   end
 
-  def parse_one(c, %{"Id" => id, "Desc" => desc, "QualifierRef" => type}) do
+  def parse_one(_state, c, %{"Id" => id, "Desc" => desc, "QualifierRef" => type}) do
     qualifier_desc =
       qualifier_definitions()
       |> Map.get(type, %{})
@@ -31,7 +31,7 @@ defmodule EdifactParser.Component do
     {:ok, {id, %{"val" => c, "desc" => desc, "qualifier_desc" => qualifier_desc}}}
   end
 
-  def parse_one(c, %{"Id" => id, "Desc" => desc}) do
-    {:ok, {id, %{"val" => c, "desc" => desc}}}
+  def parse_one(%{charset: charset}, c, %{"Id" => id, "Desc" => desc}) do
+    {:ok, {id, %{"val" => Codepagex.to_string!(c, charset), "desc" => desc}}}
   end
 end

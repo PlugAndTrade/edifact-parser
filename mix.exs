@@ -27,7 +27,8 @@ defmodule EdifactParser.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:jason, "~> 1.1"}
+      {:jason, "~> 1.1"},
+      {:codepagex, "~> 0.1"}
     ]
   end
 end
