@@ -7,26 +7,12 @@ defmodule EdifactParser.Message do
               Map.put(schemas, "#{r}#{t}", schema)
             end)
 
-  def parse(segments), do: parse(%{}, segments)
-
-  def parse(parsed, [{segid, els} | segments]) when segid in ["UNA", "UNB", "UNT", "UNZ"] do
-    parse(Map.put(parsed, segid, els), segments)
-  end
-
-  def parse(parsed, [{"UNH", unh} | segments]) do
-    {:ok, {parsed, {rest, _defs}}} =
-      parse_message(
-        parsed,
-        segments,
-        message_definition(Edifact.UNH.version(unh) <> Edifact.UNH.message_type(unh))
-      )
-
-    {:ok, {parsed, rest}} = parse(parsed, rest)
-    {:ok, {Map.merge(parsed, %{"UNH" => unh}), rest}}
-  end
-
-  def parse(parsed, rest) do
-    {:ok, {parsed, rest}}
+  def parse([{"UNH", unh} | _] = segments) do
+    parse_message(
+      %{},
+      segments,
+      message_definition(Edifact.UNH.version(unh) <> Edifact.UNH.message_type(unh))
+    )
   end
 
   def parse_message(
@@ -34,7 +20,7 @@ defmodule EdifactParser.Message do
         [{seg_id, _} | _] = segments,
         [%{"Loop" => [%{"ID" => seg_id} | _] = inner_defs} | _] = defs
       ) do
-    {:ok, {inner_parsed, {rest, _}}} = parse_message(%{}, segments, inner_defs)
+    {:ok, {inner_parsed, rest}} = parse_message(%{}, segments, inner_defs)
     parsed = Map.update(parsed, seg_id, [inner_parsed], &List.insert_at(&1, -1, inner_parsed))
     parse_message(parsed, rest, defs)
   end
@@ -65,8 +51,14 @@ defmodule EdifactParser.Message do
     end
   end
 
-  def parse_message(parsed, segs, defs) do
-    {:ok, {parsed, {segs, defs}}}
+  def parse_message(parsed, segs, []), do: {:ok, {parsed, segs}}
+
+  def parse_message(_parsed, [{segid, _} | _], [%{"ID" => expected} | _]) do
+    {:error, "Message syntax error. Unexpected segment #{segid}, expected #{expected}."}
+  end
+
+  def parse_message(_parsed, [], [%{"ID" => expected} | _]) do
+    {:error, "Message syntax error. Unexpected end of segments, expected #{expected}."}
   end
 
   def message_definition(type), do: @messages |> Map.get(type) |> Map.get("TransactionSet")

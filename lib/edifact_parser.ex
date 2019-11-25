@@ -33,7 +33,7 @@ defmodule EdifactParser do
   def parse(doc) do
     tokens = EdifactParser.Tokenizer.tokenize(doc)
     {:ok, segs} = EdifactParser.Segment.parse(tokens)
-    {:ok, {parsed, _rest}} = EdifactParser.Message.parse(segs)
+    {:ok, {parsed, _rest}} = EdifactParser.Envelope.parse(segs)
     {:ok, parsed}
   end
 
