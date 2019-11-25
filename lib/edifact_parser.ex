@@ -31,10 +31,14 @@ defmodule EdifactParser do
   end
 
   def parse(doc) do
-    tokens = EdifactParser.Tokenizer.tokenize(doc)
-    {:ok, segs} = EdifactParser.Segment.parse(tokens)
-    {:ok, {parsed, _rest}} = EdifactParser.Envelope.parse(segs)
-    {:ok, parsed}
+    with tokens <- EdifactParser.Tokenizer.tokenize(doc),
+         {:ok, segs} <- EdifactParser.Segment.parse(tokens),
+         {:ok, {parsed, _rest}} <- EdifactParser.Envelope.parse(segs) do
+      {:ok, parsed}
+    else
+      {:error, _} = err -> err
+      err -> {:error, err}
+    end
   end
 
   def maybe_attach_qualifier_desc(%{"val" => qual} = val, %{"QualifierRef" => type}) do

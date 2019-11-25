@@ -11,8 +11,17 @@ defmodule EdifactParser.Envelope do
     end
   end
 
-  def parse(segid, [{segid, els} | segments]) when segid in ["UNA", "UNB", "UNZ"] do
+  def parse(segid, [{segid, els} | segments]) when segid in ["UNA", "UNB"] do
     {:ok, {els, segments}}
+  end
+
+  def parse("UNZ", [{"UNZ", unz}]) do
+    {:ok, {unz, []}}
+  end
+
+  def parse("UNZ", [{"UNZ", _} | tail]) do
+    trailing_segids = Enum.map(tail, fn {segid, _} -> segid end)
+    {:error, "Trailing segments after UNZ: #{Enum.join(trailing_segids, ", ")}"}
   end
 
   def parse("UNH", [{"UNH", _} | _] = segments) do
