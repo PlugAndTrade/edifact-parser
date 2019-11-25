@@ -185,7 +185,7 @@
             "Id": "0025",
             "Name": "UNB6.2",
             "Desc": "Recipient's reference/password qualifier",
-            "Required": true,
+            "Required": false,
             "MinLength": 0,
             "MaxLength": 4,
             "QualifierRef": "Recipient reference/password qualifier"
