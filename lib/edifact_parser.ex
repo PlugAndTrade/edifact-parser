@@ -41,6 +41,12 @@ defmodule EdifactParser do
     end
   end
 
+  def parse_file(path) do
+    {:ok, parsed} = File.read!(path)
+                    |> parse()
+    Jason.encode!(parsed)
+  end
+
   def maybe_attach_qualifier_desc(%{"val" => qual} = val, %{"QualifierRef" => type}) do
     qualifier_desc =
       qualifier_definitions()
