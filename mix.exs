@@ -5,7 +5,13 @@ defmodule EdifactParser.MixProject do
     [
       app: :edifact_parser,
       version: "0.1.0",
-      elixir: "~> 1.8",
+      elixir: "~> 1.9",
+      releases: [
+        cli: [
+          include_executables_for: [:unix],
+          applications: [runtime_tools: :permanent]
+        ]
+      ],
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
