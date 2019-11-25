@@ -4,7 +4,7 @@ defmodule EdifactParser.Segment do
            {%{charset: :ascii, defs: EdifactParser.segment_definitions("UNIVERSAL")}, []},
            segment_tokens
          ) do
-      {:ok, {_, segments}} -> {:ok, segments}
+      {:ok, {_, segments}} -> {:ok, Enum.reverse(segments)}
       {:error, _} = err -> err
       err -> {:error, err}
     end
@@ -13,7 +13,7 @@ defmodule EdifactParser.Segment do
   def parse({state, segments}, [segment_token | segment_tokens]) do
     case parse_one(state, segment_token) do
       {:ok, segment} ->
-        parse({update_state(state, segment), segments ++ [segment]}, segment_tokens)
+        parse({update_state(state, segment), [segment | segments]}, segment_tokens)
 
       {:error, _} = err ->
         err
@@ -31,7 +31,8 @@ defmodule EdifactParser.Segment do
       {:ok, %{"Elements" => element_definitions}} ->
         case EdifactParser.Element.parse(state, element_tokens, element_definitions) do
           {:ok, elements} -> {:ok, {seg_id, elements}}
-          err -> err
+          {:error, msg} -> {:error, "Failed to parse segment #{seg_id}: #{msg}"}
+          err -> {:error, "Failed to parse segment #{seg_id}: #{inspect(err)}"}
         end
 
       _ ->
