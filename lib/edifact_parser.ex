@@ -10,12 +10,7 @@ defmodule EdifactParser do
                          Map.put(schemas, t, s)
                        end)
 
-  @qualifiers_definitions "priv/D96A/qualifiers.json"
-                          |> File.read!()
-                          |> Jason.decode!()
-
   def segment_definitions(version), do: Map.fetch!(@segment_definitions, version)
-  def qualifier_definitions, do: @qualifiers_definitions
 
   @doc """
   parse
@@ -46,15 +41,4 @@ defmodule EdifactParser do
                     |> parse()
     Jason.encode!(parsed)
   end
-
-  def maybe_attach_qualifier_desc(%{"val" => qual} = val, %{"QualifierRef" => type}) do
-    qualifier_desc =
-      qualifier_definitions()
-      |> Map.get(type, %{})
-      |> Map.get(qual, "")
-
-    Map.put(val, "qualifier_desc", qualifier_desc)
-  end
-
-  def maybe_attach_qualifier_desc(val, _), do: val
 end

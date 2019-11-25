@@ -28,7 +28,10 @@ defmodule EdifactParser.Element do
   end
 
   def parse_one([e], %{"Id" => id, "Desc" => desc} = edef) do
-    {:ok,
-     {id, EdifactParser.maybe_attach_qualifier_desc(%{"val" => e, "description" => desc}, edef)}}
+    case EdifactParser.Component.parse_one(e, edef) do
+      {:ok, element} -> {:ok, element}
+      {:error, _} = err -> err
+      err -> {:error, err}
+    end
   end
 end

@@ -1,4 +1,10 @@
 defmodule EdifactParser.Component do
+  @qualifiers_definitions "priv/D96A/qualifiers.json"
+                          |> File.read!()
+                          |> Jason.decode!()
+
+  def qualifier_definitions, do: @qualifiers_definitions
+
   def parse([c | components], [cd | component_defs]) do
     case parse(components, component_defs) do
       {:ok, parsed_components} ->
@@ -16,7 +22,16 @@ defmodule EdifactParser.Component do
     {:ok, %{}}
   end
 
-  def parse_one(c, %{"Id" => id, "Desc" => desc} = cdef) do
-    {:ok, {id, EdifactParser.maybe_attach_qualifier_desc(%{"val" => c, "desc" => desc}, cdef)}}
+  def parse_one(c, %{"Id" => id, "Desc" => desc, "QualifierRef" => type}) do
+    qualifier_desc =
+      qualifier_definitions()
+      |> Map.get(type, %{})
+      |> Map.get(c, "")
+
+    {:ok, {id, %{"val" => c, "desc" => desc, "qualifier_desc" => qualifier_desc}}}
+  end
+
+  def parse_one(c, %{"Id" => id, "Desc" => desc}) do
+    {:ok, {id, %{"val" => c, "desc" => desc}}}
   end
 end
