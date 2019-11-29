@@ -1,4 +1,15 @@
 defmodule EdifactParser.Component do
+  @moduledoc """
+  Component definition properties
+   * DataType
+   * Desc
+   * Id
+   * MaxLength
+   * MinLength
+   * QualifierRef
+   * Required
+  """
+
   @qualifiers_definitions "priv/D96A/qualifiers.json"
                           |> File.read!()
                           |> Jason.decode!()

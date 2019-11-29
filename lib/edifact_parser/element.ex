@@ -1,4 +1,18 @@
 defmodule EdifactParser.Element do
+  @moduledoc """
+  Element definition properties
+   * Components
+   * Count
+   * DataType
+   * Desc
+   * Id
+   * MaxLength
+   * MinLength
+   * QualifierRef
+   * Repeat
+   * Required
+  """
+
   def parse(%{} = state, element_tokens, element_defs) do
     case parse({state, []}, element_tokens, element_defs) do
       {:ok, {_, elements}} -> {:ok, Enum.into(elements, %{})}
