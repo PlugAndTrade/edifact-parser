@@ -53,12 +53,13 @@ defmodule EdifactParser.Component do
   end
 
   def parse_one(_state, c, %{"Id" => id, "Desc" => desc, "QualifierRef" => type}) do
-    qualifier_desc =
-      qualifier_definitions()
-      |> Map.get(type, %{})
-      |> Map.get(c, "")
+    case qualifier_definitions() |> Map.get(type, %{}) |> Map.fetch(c) do
+      {:ok, val} ->
+        {:ok, {id, %{"val" => c, "desc" => desc, "qualifier_desc" => val}}}
 
-    {:ok, {id, %{"val" => c, "desc" => desc, "qualifier_desc" => qualifier_desc}}}
+      :error ->
+        {:error, "Value '#{c}' of type '#{type}' for component '#{id}' not found"}
+    end
   end
 
   def parse_one(%{charset: charset}, c, %{"Id" => id, "Desc" => desc}) do
