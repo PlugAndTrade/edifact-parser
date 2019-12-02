@@ -10,7 +10,7 @@ defmodule EdifactParser.Segment do
 
   def parse(segment_tokens) do
     case parse(
-           {%{charset: :ascii, defs: segment_definitions("UNIVERSAL")}, []},
+           {%{charset: :ascii, defs: segment_definitions("UNIVERSAL"), count: 0}, []},
            segment_tokens
          ) do
       {:ok, {_, segments}} -> {:ok, Enum.reverse(segments)}
@@ -22,6 +22,7 @@ defmodule EdifactParser.Segment do
   def parse({state, segments}, [segment_token | segment_tokens]) do
     case parse_one(state, segment_token) do
       {:ok, segment} ->
+        state = state |> update_state(segment) |> Map.update!(:count, &Kernel.+(&1, 1))
         parse({update_state(state, segment), [segment | segments]}, segment_tokens)
 
       {:error, _} = err ->
@@ -35,17 +36,17 @@ defmodule EdifactParser.Segment do
   def parse(state, []),
     do: {:ok, state}
 
-  def parse_one(%{defs: defs} = state, {seg_id, element_tokens}) do
+  def parse_one(%{defs: defs, count: count} = state, {seg_id, element_tokens}) do
     case Map.fetch(defs, seg_id) do
       {:ok, %{"Elements" => element_definitions}} ->
         case EdifactParser.Element.parse(state, element_tokens, element_definitions) do
           {:ok, elements} -> {:ok, {seg_id, elements}}
-          {:error, msg} -> {:error, "Failed to parse segment #{seg_id}: #{msg}"}
-          err -> {:error, "Failed to parse segment #{seg_id}: #{inspect(err)}"}
+          {:error, msg} -> {:error, "Failed to parse segment ##{count} '#{seg_id}': #{msg}"}
+          err -> {:error, "Failed to parse segment ##{count} '#{seg_id}': #{inspect(err)}"}
         end
 
       _ ->
-        {:error, "Unknown segment #{seg_id}"}
+        {:error, "Unknown segment ##{count} '#{seg_id}'"}
     end
   end
 
