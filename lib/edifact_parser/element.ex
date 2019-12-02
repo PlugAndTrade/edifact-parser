@@ -28,7 +28,7 @@ defmodule EdifactParser.Element do
     case result do
       {:ok, repeated_elements} ->
         element =
-          repeated_elements |> Enum.reduce({"", []}, fn {k, v}, {_, vs} -> {k, [v | vs]} end)
+          repeated_elements |> Enum.reduce({"", []}, fn {k, v}, {_, vs} -> {k, vs ++ [v]} end)
 
         parse({state, [element | elements]}, remaining_tokens, element_defs)
 
