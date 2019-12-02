@@ -1,7 +1,16 @@
 defmodule EdifactParser.Segment do
+  @segment_definitions ["priv/segments.json", "priv/D96A/segments.json"]
+                       |> Enum.map(&File.read!/1)
+                       |> Enum.map(&Jason.decode!/1)
+                       |> Enum.reduce(%{}, fn %{"Release" => t} = s, schemas ->
+                         Map.put(schemas, t, s)
+                       end)
+
+  def segment_definitions(version), do: Map.fetch!(@segment_definitions, version)
+
   def parse(segment_tokens) do
     case parse(
-           {%{charset: :ascii, defs: EdifactParser.segment_definitions("UNIVERSAL")}, []},
+           {%{charset: :ascii, defs: segment_definitions("UNIVERSAL")}, []},
            segment_tokens
          ) do
       {:ok, {_, segments}} -> {:ok, Enum.reverse(segments)}
@@ -45,7 +54,7 @@ defmodule EdifactParser.Segment do
       state,
       :defs,
       %{},
-      &Map.merge(&1, EdifactParser.segment_definitions(Edifact.UNH.version(unh)))
+      &Map.merge(&1, segment_definitions(Edifact.UNH.version(unh)))
     )
   end
 

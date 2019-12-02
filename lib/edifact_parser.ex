@@ -3,15 +3,6 @@ defmodule EdifactParser do
   Documentation for EdifactParser.
   """
 
-  @segment_definitions ["priv/segments.json", "priv/D96A/segments.json"]
-                       |> Enum.map(&File.read!/1)
-                       |> Enum.map(&Jason.decode!/1)
-                       |> Enum.reduce(%{}, fn %{"Release" => t} = s, schemas ->
-                         Map.put(schemas, t, s)
-                       end)
-
-  def segment_definitions(version), do: Map.fetch!(@segment_definitions, version)
-
   @doc """
   parse
 
