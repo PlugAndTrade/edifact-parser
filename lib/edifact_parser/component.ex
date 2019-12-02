@@ -44,6 +44,14 @@ defmodule EdifactParser.Component do
     {:ok, state}
   end
 
+  def parse_one(_state, "", %{"Id" => id, "Desc" => desc, "Required" => false}) do
+    {:ok, {id, %{"val" => "", "desc" => desc}}}
+  end
+
+  def parse_one(_state, "", %{"Id" => id, "Desc" => desc, "minLength" => 0}) do
+    {:ok, {id, %{"val" => "", "desc" => desc}}}
+  end
+
   def parse_one(_state, c, %{"Id" => id, "Desc" => desc, "QualifierRef" => type}) do
     qualifier_desc =
       qualifier_definitions()
