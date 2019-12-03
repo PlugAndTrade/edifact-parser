@@ -14,12 +14,20 @@ defmodule EdifactParser.Tokenizer do
   end
 
   def tokenize(%{segment: s, component: c, element: e, release: r}, doc) do
+    seg_p = ~r"(?<!#{Regex.escape(r)})#{Regex.escape(s)}\s*"
+    el_p = ~r"(?<!#{Regex.escape(r)})#{Regex.escape(e)}"
+    comp_p = ~r"(?<!#{Regex.escape(r)})#{Regex.escape(c)}"
+    rel_p = ~r"#{Regex.escape(r)}(?=.)"
+
     doc
-    |> String.split(~r"(?<!#{Regex.escape(r)})#{Regex.escape(s)}\s*", trim: true)
-    |> Enum.map(&String.split(&1, ~r"(?<!#{Regex.escape(r)})#{Regex.escape(e)}"))
+    |> String.split(seg_p, trim: true)
+    |> Enum.map(&String.split(&1, el_p))
     |> Enum.map(fn [seg_type | elements] ->
-      {seg_type,
-       Enum.map(elements, &String.split(&1, ~r"(?<!#{Regex.escape(r)})#{Regex.escape(c)}"))}
+      {String.replace(seg_type, rel_p, ""),
+       Enum.map(
+         elements,
+         fn e -> e |> String.split(comp_p) |> Enum.map(&String.replace(&1, rel_p, "")) end
+       )}
     end)
   end
 
