@@ -2,6 +2,14 @@
 
 **TODO: Add description**
 
+## TODO
+
+ * Repeated (non-looped) components/elements, eg.
+    - NAD:C080:3036
+    - NAD:C059:3042
+    - PAT:C110:4276
+    - IMD:C273:7008 (not last component!)
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
