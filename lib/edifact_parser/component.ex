@@ -18,9 +18,26 @@ defmodule EdifactParser.Component do
 
   def parse(%{} = state, comp_tokens, comp_defs) do
     case parse({state, []}, comp_tokens, comp_defs) do
-      {:ok, {_, components}} -> {:ok, Enum.into(components, %{})}
+      {:ok, {components, []}} ->
+        {:ok, Enum.into(components, %{})}
+      {:ok, {_, rest}} ->
+        {:error, "Unrecognized components: #{Enum.join(rest, ", ")}"}
+      err ->
+        {:error, err}
+    end
+  end
+
+  def parse({state, components}, tokens, [%{"Group" => [%{"Id" => id} | _] = inner_defs, "Count" => count} | comp_defs]) do
+    {group_results, rest} = Enum.reduce(1..count, {[], tokens}, fn _, {groups, tokens} ->
+      case parse({state, []}, tokens, inner_defs) do
+        {:ok, {group, rest}} -> {[{:ok, Enum.into(group, %{})} | groups], rest}
+        {:error, _} = err -> {[err | groups], tokens}
+      end
+    end)
+
+    case group_results |> Utils.reduce_result() do
+      {:ok, groups} -> parse({state, [{id, Enum.reverse(groups)} | components]}, rest, comp_defs)
       {:error, _} = err -> err
-      err -> {:error, err}
     end
   end
 
@@ -36,12 +53,8 @@ defmodule EdifactParser.Component do
     {:error, "Missing required component #{id}"}
   end
 
-  def parse(_state, [_ | _] = comp_tokens, []) do
-    {:error, "Unrecognized components: #{Enum.join(comp_tokens, ", ")}"}
-  end
-
-  def parse(state, [], _) do
-    {:ok, state}
+  def parse({_state, components}, rest, _) do
+    {:ok, {components, rest}}
   end
 
   def parse_one(_state, "", %{"Id" => id, "Desc" => desc, "Required" => false}) do
