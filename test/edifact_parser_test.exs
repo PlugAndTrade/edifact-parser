@@ -309,13 +309,13 @@ defmodule EdifactParserTest do
                   "3055" => %{"val" => "9", "desc" => "Code list responsible agency, coded", "qualifier_desc" => ""},
                   "desc" => "PARTY IDENTIFICATION DETAILS"
                 },
-                "C058" => %{"3124" => %{"val" => "", "desc" => "Name and address line"}, "desc" => "NAME AND ADDRESS"},
+                "C058" => %{"3124" => [%{"val" => "", "desc" => "Name and address line"}], "desc" => "NAME AND ADDRESS"},
                 "C080" => %{
-                  "3036" => %{"val" => "Buyer Buyerson", "desc" => "Party name"},
+                  "3036" => [%{"val" => "Buyer Buyerson", "desc" => "Party name"}],
                   "desc" => "PARTY NAME"
                 },
                 "C059" => %{
-                  "3042" => %{"val" => "Buyer Street 1", "desc" => "Street and number/p.o. box"},
+                  "3042" => [%{"val" => "Buyer Street 1", "desc" => "Street and number/p.o. box"}],
                   "desc" => "STREET"
                 },
                 "3164" => %{"val" => "Buyersburg", "desc" => "City name"},
@@ -334,13 +334,13 @@ defmodule EdifactParserTest do
                   "3055" => %{"val" => "9", "desc" => "Code list responsible agency, coded", "qualifier_desc" => ""},
                   "desc" => "PARTY IDENTIFICATION DETAILS"
                 },
-                "C058" => %{"3124" => %{"val" => "", "desc" => "Name and address line"}, "desc" => "NAME AND ADDRESS"},
+                "C058" => %{"3124" => [%{"val" => "", "desc" => "Name and address line"}], "desc" => "NAME AND ADDRESS"},
                 "C080" => %{
-                  "3036" => %{"val" => "Delivery Partyson", "desc" => "Party name"},
+                  "3036" => [%{"val" => "Delivery Partyson", "desc" => "Party name"}],
                   "desc" => "PARTY NAME"
                 },
                 "C059" => %{
-                  "3042" => %{"val" => "Delivery Street 2", "desc" => "Street and number/p.o. box"},
+                  "3042" => [%{"val" => "Delivery Street 2", "desc" => "Street and number/p.o. box"}],
                   "desc" => "STREET"
                 },
                 "3164" => %{"val" => "Partysburg", "desc" => "City name"},
@@ -359,13 +359,13 @@ defmodule EdifactParserTest do
                   "3055" => %{"val" => "9", "desc" => "Code list responsible agency, coded", "qualifier_desc" => ""},
                   "desc" => "PARTY IDENTIFICATION DETAILS"
                 },
-                "C058" => %{"3124" => %{"val" => "", "desc" => "Name and address line"}, "desc" => "NAME AND ADDRESS"},
+                "C058" => %{"3124" => [%{"val" => "", "desc" => "Name and address line"}], "desc" => "NAME AND ADDRESS"},
                 "C080" => %{
-                  "3036" => %{"val" => "Invoicee Invoison", "desc" => "Party name"},
+                  "3036" => [%{"val" => "Invoicee Invoison", "desc" => "Party name"}],
                   "desc" => "PARTY NAME"
                 },
                 "C059" => %{
-                  "3042" => %{"val" => "Invoice Street 3", "desc" => "Street and number/p.o. box"},
+                  "3042" => [%{"val" => "Invoice Street 3", "desc" => "Street and number/p.o. box"}],
                   "desc" => "STREET"
                 },
                 "3164" => %{"val" => "Invoiceburge", "desc" => "City name"},
@@ -384,13 +384,13 @@ defmodule EdifactParserTest do
                   "3055" => %{"val" => "9", "desc" => "Code list responsible agency, coded", "qualifier_desc" => ""},
                   "desc" => "PARTY IDENTIFICATION DETAILS"
                 },
-                "C058" => %{"3124" => %{"val" => "", "desc" => "Name and address line"}, "desc" => "NAME AND ADDRESS"},
+                "C058" => %{"3124" => [%{"val" => "", "desc" => "Name and address line"}], "desc" => "NAME AND ADDRESS"},
                 "C080" => %{
-                  "3036" => %{"val" => "Supplier Supplierson", "desc" => "Party name"},
+                  "3036" => [%{"val" => "Supplier Supplierson", "desc" => "Party name"}],
                   "desc" => "PARTY NAME"
                 },
                 "C059" => %{
-                  "3042" => %{"val" => "Suppliers Street 4", "desc" => "Street and number/p.o. box"},
+                  "3042" => [%{"val" => "Suppliers Street 4", "desc" => "Street and number/p.o. box"}],
                   "desc" => "STREET"
                 },
                 "3164" => %{"val" => "Suppliersburg", "desc" => "City name"},
@@ -467,7 +467,7 @@ defmodule EdifactParserTest do
                   "4277" => %{"val" => "6", "desc" => "Terms of payment identification", "qualifier_desc" => ""},
                   "1131" => %{"val" => "ZZZ", "desc" => "Code list qualifier", "qualifier_desc" => ""},
                   "3055" => %{"desc" => "Code list responsible agency, coded", "val" => ""},
-                  "4276" => %{"val" => "30 dagar", "desc" => "Terms of payment"},
+                  "4276" => [%{"val" => "30 dagar", "desc" => "Terms of payment"}],
                   "desc" => "PAYMENT TERMS",
                 }
               }
@@ -542,7 +542,7 @@ defmodule EdifactParserTest do
                     "7009" => %{"val" => "", "desc" => "Item description identification"},
                     "1131" => %{"val" => "", "desc" => "Code list qualifier"},
                     "3055" => %{"val" => "", "desc" => "Code list responsible agency, coded"},
-                    "7008" => %{"val" => "Product one", "desc" => "Item description"},
+                    "7008" => [%{"val" => "Product one", "desc" => "Item description"}],
                     "desc" => "ITEM DESCRIPTION"
                   }
                 }
@@ -731,7 +731,7 @@ defmodule EdifactParserTest do
                     "7009" => %{"val" => "", "desc" => "Item description identification"},
                     "1131" => %{"val" => "", "desc" => "Code list qualifier"},
                     "3055" => %{"val" => "", "desc" => "Code list responsible agency, coded"},
-                    "7008" => %{"val" => "Product two", "desc" => "Item description"},
+                    "7008" => [%{"val" => "Product two", "desc" => "Item description"}],
                     "desc" => "ITEM DESCRIPTION"
                   }
                 }
@@ -920,7 +920,7 @@ defmodule EdifactParserTest do
                     "7009" => %{"val" => "", "desc" => "Item description identification"},
                     "1131" => %{"val" => "", "desc" => "Code list qualifier"},
                     "3055" => %{"val" => "", "desc" => "Code list responsible agency, coded"},
-                    "7008" => %{"val" => "Product three", "desc" => "Item description"},
+                    "7008" => [%{"val" => "Product three", "desc" => "Item description"}],
                     "desc" => "ITEM DESCRIPTION"
                   }
                 }
@@ -1109,7 +1109,7 @@ defmodule EdifactParserTest do
                     "7009" => %{"val" => "", "desc" => "Item description identification"},
                     "1131" => %{"val" => "", "desc" => "Code list qualifier"},
                     "3055" => %{"val" => "", "desc" => "Code list responsible agency, coded"},
-                    "7008" => %{"val" => "Product four", "desc" => "Item description"},
+                    "7008" => [%{"val" => "Product four", "desc" => "Item description"}],
                     "desc" => "ITEM DESCRIPTION"
                   }
                 }
@@ -1298,7 +1298,7 @@ defmodule EdifactParserTest do
                     "7009" => %{"val" => "", "desc" => "Item description identification"},
                     "1131" => %{"val" => "", "desc" => "Code list qualifier"},
                     "3055" => %{"val" => "", "desc" => "Code list responsible agency, coded"},
-                    "7008" => %{"val" => "Product five", "desc" => "Item description"},
+                    "7008" => [%{"val" => "Product five", "desc" => "Item description"}],
                     "desc" => "ITEM DESCRIPTION"
                   }
                 }
@@ -1487,7 +1487,7 @@ defmodule EdifactParserTest do
                     "7009" => %{"val" => "", "desc" => "Item description identification"},
                     "1131" => %{"val" => "", "desc" => "Code list qualifier"},
                     "3055" => %{"val" => "", "desc" => "Code list responsible agency, coded"},
-                    "7008" => %{"val" => "Product six", "desc" => "Item description"},
+                    "7008" => [%{"val" => "Product six", "desc" => "Item description"}],
                     "desc" => "ITEM DESCRIPTION"
                   }
                 }
@@ -1676,7 +1676,7 @@ defmodule EdifactParserTest do
                     "7009" => %{"val" => "", "desc" => "Item description identification"},
                     "1131" => %{"val" => "", "desc" => "Code list qualifier"},
                     "3055" => %{"val" => "", "desc" => "Code list responsible agency, coded"},
-                    "7008" => %{"val" => "Product seven", "desc" => "Item description"},
+                    "7008" => [%{"val" => "Product seven", "desc" => "Item description"}],
                     "desc" => "ITEM DESCRIPTION"
                   }
                 }

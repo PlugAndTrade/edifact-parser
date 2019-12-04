@@ -40,41 +40,10 @@
             "Id": "3286",
             "Desc": "Address component",
             "DataType": "AN",
-            "Required": true,
-            "MinLength": 1,
-            "MaxLength": 70
-          },
-          {
-            "Id": "3286",
-            "Desc": "Address component",
-            "DataType": "AN",
             "Required": false,
             "MinLength": 1,
-            "MaxLength": 70
-          },
-          {
-            "Id": "3286",
-            "Desc": "Address component",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 70
-          },
-          {
-            "Id": "3286",
-            "Desc": "Address component",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 70
-          },
-          {
-            "Id": "3286",
-            "Desc": "Address component",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 70
+            "MaxLength": 70,
+            "Count": 5
           }
         ]
       },
@@ -308,15 +277,8 @@
             "DataType": "AN",
             "Required": false,
             "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7160",
-            "Desc": "Special service",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
+            "MaxLength": 35,
+            "Count": 2
           }
         ]
       }
@@ -342,31 +304,8 @@
         "Id": "4183",
         "Desc": "Special conditions, coded",
         "Required": false,
-        "QualifierRef": "Special conditions, coded"
-      },
-      {
-        "Id": "4183",
-        "Desc": "Special conditions, coded",
-        "Required": false,
-        "QualifierRef": "Special conditions, coded"
-      },
-      {
-        "Id": "4183",
-        "Desc": "Special conditions, coded",
-        "Required": false,
-        "QualifierRef": "Special conditions, coded"
-      },
-      {
-        "Id": "4183",
-        "Desc": "Special conditions, coded",
-        "Required": false,
-        "QualifierRef": "Special conditions, coded"
-      },
-      {
-        "Id": "4183",
-        "Desc": "Special conditions, coded",
-        "Required": false,
-        "QualifierRef": "Special conditions, coded"
+        "QualifierRef": "Special conditions, coded",
+        "Count": 5
       }
     ]
   },
@@ -896,15 +835,8 @@
             "DataType": "AN",
             "Required": false,
             "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7110",
-            "Desc": "Characteristic value",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
+            "MaxLength": 35,
+            "Count": 2
           }
         ]
       }
@@ -1002,15 +934,8 @@
             "DataType": "AN",
             "Required": false,
             "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7036",
-            "Desc": "Characteristic",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
+            "MaxLength": 35,
+            "Count": 2
           }
         ]
       }
@@ -1512,43 +1437,29 @@
           },
           {
             "Id": "5275",
-            "Desc": "Supplementary rate/tariff basis identification",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 6
-          },
-          {
-            "Id": "1131",
-            "Desc": "Code list qualifier",
-            "Required": false,
-            "QualifierRef": "Code list qualifier"
-          },
-          {
-            "Id": "3055",
-            "Desc": "Code list responsible agency, coded",
-            "Required": false,
-            "QualifierRef": "Code list responsible agency, coded"
-          },
-          {
-            "Id": "5275",
-            "Desc": "Supplementary rate/tariff basis identification",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 6
-          },
-          {
-            "Id": "1131",
-            "Desc": "Code list qualifier",
-            "Required": false,
-            "QualifierRef": "Code list qualifier"
-          },
-          {
-            "Id": "3055",
-            "Desc": "Code list responsible agency, coded",
-            "Required": false,
-            "QualifierRef": "Code list responsible agency, coded"
+            "Count": 2,
+            "Group": [
+              {
+                "Id": "5275",
+                "Desc": "Supplementary rate/tariff basis identification",
+                "DataType": "AN",
+                "Required": false,
+                "MinLength": 1,
+                "MaxLength": 6
+              },
+              {
+                "Id": "1131",
+                "Desc": "Code list qualifier",
+                "Required": false,
+                "QualifierRef": "Code list qualifier"
+              },
+              {
+                "Id": "3055",
+                "Desc": "Code list responsible agency, coded",
+                "Required": false,
+                "QualifierRef": "Code list responsible agency, coded"
+              }
+            ]
           }
         ]
       },
@@ -2080,23 +1991,8 @@
             "DataType": "AN",
             "Required": false,
             "MinLength": 1,
-            "MaxLength": 4
-          },
-          {
-            "Id": "8246",
-            "Desc": "Dangerous goods label marking",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 4
-          },
-          {
-            "Id": "8246",
-            "Desc": "Dangerous goods label marking",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 4
+            "MaxLength": 4,
+            "Count": 3
           }
         ]
       },
@@ -2314,15 +2210,8 @@
             "DataType": "AN",
             "Required": false,
             "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7160",
-            "Desc": "Special service",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
+            "MaxLength": 35,
+            "Count": 2
           }
         ]
       },
@@ -2812,15 +2701,8 @@
             "DataType": "AN",
             "Required": false,
             "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "9008",
-            "Desc": "Occupation",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
+            "MaxLength": 35,
+            "Count": 2
           }
         ]
       },
@@ -2854,15 +2736,8 @@
             "DataType": "AN",
             "Required": false,
             "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "9006",
-            "Desc": "Qualification classification",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
+            "MaxLength": 35,
+            "Count": 2
           }
         ]
       },
@@ -3184,15 +3059,8 @@
             "DataType": "AN",
             "Required": false,
             "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "3192",
-            "Desc": "Account holder name",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
+            "MaxLength": 35,
+            "Count": 2
           },
           {
             "Id": "6345",
@@ -3210,43 +3078,55 @@
         "Components": [
           {
             "Id": "3433",
-            "Desc": "Institution name identification",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 11
-          },
-          {
-            "Id": "1131",
-            "Desc": "Code list qualifier",
-            "Required": false,
-            "QualifierRef": "Code list qualifier"
-          },
-          {
-            "Id": "3055",
-            "Desc": "Code list responsible agency, coded",
-            "Required": false,
-            "QualifierRef": "Code list responsible agency, coded"
+            "Count": 1,
+            "Group": [
+              {
+                "Id": "3433",
+                "Desc": "Institution name identification",
+                "DataType": "AN",
+                "Required": false,
+                "MinLength": 1,
+                "MaxLength": 11
+              },
+              {
+                "Id": "1131",
+                "Desc": "Code list qualifier",
+                "Required": false,
+                "QualifierRef": "Code list qualifier"
+              },
+              {
+                "Id": "3055",
+                "Desc": "Code list responsible agency, coded",
+                "Required": false,
+                "QualifierRef": "Code list responsible agency, coded"
+              }
+            ]
           },
           {
             "Id": "3434",
-            "Desc": "Institution branch number",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 17
-          },
-          {
-            "Id": "1131",
-            "Desc": "Code list qualifier",
-            "Required": false,
-            "QualifierRef": "Code list qualifier"
-          },
-          {
-            "Id": "3055",
-            "Desc": "Code list responsible agency, coded",
-            "Required": false,
-            "QualifierRef": "Code list responsible agency, coded"
+            "Count": 1,
+            "Group": [
+              {
+                "Id": "3434",
+                "Desc": "Institution branch number",
+                "DataType": "AN",
+                "Required": false,
+                "MinLength": 1,
+                "MaxLength": 17
+              },
+              {
+                "Id": "1131",
+                "Desc": "Code list qualifier",
+                "Required": false,
+                "QualifierRef": "Code list qualifier"
+              },
+              {
+                "Id": "3055",
+                "Desc": "Code list responsible agency, coded",
+                "Required": false,
+                "QualifierRef": "Code list responsible agency, coded"
+              }
+            ]
           },
           {
             "Id": "3432",
@@ -3448,41 +3328,10 @@
             "Id": "4440",
             "Desc": "Free text",
             "DataType": "AN",
-            "Required": true,
-            "MinLength": 1,
-            "MaxLength": 70
-          },
-          {
-            "Id": "4440",
-            "Desc": "Free text",
-            "DataType": "AN",
             "Required": false,
             "MinLength": 1,
-            "MaxLength": 70
-          },
-          {
-            "Id": "4440",
-            "Desc": "Free text",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 70
-          },
-          {
-            "Id": "4440",
-            "Desc": "Free text",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 70
-          },
-          {
-            "Id": "4440",
-            "Desc": "Free text",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 70
+            "MaxLength": 70,
+            "Count": 5
           }
         ]
       },
@@ -3598,15 +3447,8 @@
             "DataType": "AN",
             "Required": true,
             "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7402",
-            "Desc": "Identity number",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
+            "MaxLength": 35,
+            "Count": 2
           }
         ]
       }
@@ -3886,15 +3728,8 @@
             "DataType": "AN",
             "Required": false,
             "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "4494",
-            "Desc": "Insurance cover",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
+            "MaxLength": 35,
+            "Count": 2
           }
         ]
       }
@@ -4026,15 +3861,8 @@
             "DataType": "AN",
             "Required": false,
             "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7036",
-            "Desc": "Characteristic",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
+            "MaxLength": 35,
+            "Count": 2
           }
         ]
       }
@@ -4128,15 +3956,8 @@
             "DataType": "AN",
             "Required": false,
             "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7008",
-            "Desc": "Item description",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
+            "MaxLength": 35,
+            "Count": 2
           },
           {
             "Id": "3453",
@@ -4874,43 +4695,29 @@
           },
           {
             "Id": "5275",
-            "Desc": "Supplementary rate/tariff basis identification",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 6
-          },
-          {
-            "Id": "1131",
-            "Desc": "Code list qualifier",
-            "Required": false,
-            "QualifierRef": "Code list qualifier"
-          },
-          {
-            "Id": "3055",
-            "Desc": "Code list responsible agency, coded",
-            "Required": false,
-            "QualifierRef": "Code list responsible agency, coded"
-          },
-          {
-            "Id": "5275",
-            "Desc": "Supplementary rate/tariff basis identification",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 6
-          },
-          {
-            "Id": "1131",
-            "Desc": "Code list qualifier",
-            "Required": false,
-            "QualifierRef": "Code list qualifier"
-          },
-          {
-            "Id": "3055",
-            "Desc": "Code list responsible agency, coded",
-            "Required": false,
-            "QualifierRef": "Code list responsible agency, coded"
+            "Count": 2,
+            "Group": [
+              {
+                "Id": "5275",
+                "Desc": "Supplementary rate/tariff basis identification",
+                "DataType": "AN",
+                "Required": false,
+                "MinLength": 1,
+                "MaxLength": 6
+              },
+              {
+                "Id": "1131",
+                "Desc": "Code list qualifier",
+                "Required": false,
+                "QualifierRef": "Code list qualifier"
+              },
+              {
+                "Id": "3055",
+                "Desc": "Code list responsible agency, coded",
+                "Required": false,
+                "QualifierRef": "Code list responsible agency, coded"
+              }
+            ]
           }
         ]
       },
@@ -5148,39 +4955,8 @@
             "DataType": "AN",
             "Required": true,
             "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "3124",
-            "Desc": "Name and address line",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "3124",
-            "Desc": "Name and address line",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "3124",
-            "Desc": "Name and address line",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "3124",
-            "Desc": "Name and address line",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
+            "MaxLength": 35,
+            "Count": 5
           }
         ]
       },
@@ -5194,39 +4970,8 @@
             "DataType": "AN",
             "Required": true,
             "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "3036",
-            "Desc": "Party name",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "3036",
-            "Desc": "Party name",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "3036",
-            "Desc": "Party name",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "3036",
-            "Desc": "Party name",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
+            "MaxLength": 35,
+            "Count": 5
           },
           {
             "Id": "3045",
@@ -5246,31 +4991,8 @@
             "DataType": "AN",
             "Required": true,
             "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "3042",
-            "Desc": "Street and number/p.o. box",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "3042",
-            "Desc": "Street and number/p.o. box",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "3042",
-            "Desc": "Street and number/p.o. box",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
+            "MaxLength": 35,
+            "Count": 4
           }
         ]
       },
@@ -5432,31 +5154,23 @@
           },
           {
             "Id": "7064",
-            "Desc": "Type of packages",
-            "DataType": "AN",
-            "Required": true,
-            "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7143",
-            "Desc": "Item number type, coded",
-            "Required": false,
-            "QualifierRef": "Item number type, coded"
-          },
-          {
-            "Id": "7064",
-            "Desc": "Type of packages",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7143",
-            "Desc": "Item number type, coded",
-            "Required": false,
-            "QualifierRef": "Item number type, coded"
+            "Count": 2,
+            "Group": [
+              {
+                "Id": "7064",
+                "Desc": "Type of packages",
+                "DataType": "AN",
+                "Required": true,
+                "MinLength": 1,
+                "MaxLength": 35
+              },
+              {
+                "Id": "7143",
+                "Desc": "Item number type, coded",
+                "Required": false,
+                "QualifierRef": "Item number type, coded"
+              }
+            ]
           }
         ]
       },
@@ -5562,15 +5276,8 @@
             "DataType": "AN",
             "Required": false,
             "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "4276",
-            "Desc": "Terms of payment",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
+            "MaxLength": 35,
+            "Count": 2
           }
         ]
       },
@@ -5668,79 +5375,8 @@
             "DataType": "AN",
             "Required": true,
             "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7102",
-            "Desc": "Shipping marks",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7102",
-            "Desc": "Shipping marks",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7102",
-            "Desc": "Shipping marks",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7102",
-            "Desc": "Shipping marks",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7102",
-            "Desc": "Shipping marks",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7102",
-            "Desc": "Shipping marks",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7102",
-            "Desc": "Shipping marks",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7102",
-            "Desc": "Shipping marks",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7102",
-            "Desc": "Shipping marks",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
+            "MaxLength": 35,
+            "Count": 10
           }
         ]
       },
@@ -6080,15 +5716,8 @@
             "DataType": "AN",
             "Required": false,
             "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7186",
-            "Desc": "Process type",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
+            "MaxLength": 35,
+            "Count": 2
           }
         ]
       }
@@ -6611,15 +6240,8 @@
             "DataType": "AN",
             "Required": false,
             "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "5314",
-            "Desc": "Remuneration type",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
+            "MaxLength": 35,
+            "Count": 2
           }
         ]
       }
@@ -6785,15 +6407,8 @@
             "DataType": "AN",
             "Required": false,
             "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7036",
-            "Desc": "Characteristic",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
+            "MaxLength": 35,
+            "Count": 2
           }
         ]
       }
@@ -7485,21 +7100,27 @@
           },
           {
             "Id": "5273",
-            "Desc": "Duty/tax/fee rate basis identification",
-            "Required": false,
-            "QualifierRef": "Duty/tax/fee rate basis identification"
-          },
-          {
-            "Id": "1131",
-            "Desc": "Code list qualifier",
-            "Required": false,
-            "QualifierRef": "Code list qualifier"
-          },
-          {
-            "Id": "3055",
-            "Desc": "Code list responsible agency, coded",
-            "Required": false,
-            "QualifierRef": "Code list responsible agency, coded"
+            "Count": 1,
+            "Group": [
+              {
+                "Id": "5273",
+                "Desc": "Duty/tax/fee rate basis identification",
+                "Required": false,
+                "QualifierRef": "Duty/tax/fee rate basis identification"
+              },
+              {
+                "Id": "1131",
+                "Desc": "Code list qualifier",
+                "Required": false,
+                "QualifierRef": "Code list qualifier"
+              },
+              {
+                "Id": "3055",
+                "Desc": "Code list responsible agency, coded",
+                "Required": false,
+                "QualifierRef": "Code list responsible agency, coded"
+              }
+            ]
           }
         ]
       },
@@ -7601,43 +7222,29 @@
           },
           {
             "Id": "5275",
-            "Desc": "Supplementary rate/tariff basis identification",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 6
-          },
-          {
-            "Id": "1131",
-            "Desc": "Code list qualifier",
-            "Required": false,
-            "QualifierRef": "Code list qualifier"
-          },
-          {
-            "Id": "3055",
-            "Desc": "Code list responsible agency, coded",
-            "Required": false,
-            "QualifierRef": "Code list responsible agency, coded"
-          },
-          {
-            "Id": "5275",
-            "Desc": "Supplementary rate/tariff basis identification",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 6
-          },
-          {
-            "Id": "1131",
-            "Desc": "Code list qualifier",
-            "Required": false,
-            "QualifierRef": "Code list qualifier"
-          },
-          {
-            "Id": "3055",
-            "Desc": "Code list responsible agency, coded",
-            "Required": false,
-            "QualifierRef": "Code list responsible agency, coded"
+            "Count": 2,
+            "Group": [
+              {
+                "Id": "5275",
+                "Desc": "Supplementary rate/tariff basis identification",
+                "DataType": "AN",
+                "Required": false,
+                "MinLength": 1,
+                "MaxLength": 6
+              },
+              {
+                "Id": "1131",
+                "Desc": "Code list qualifier",
+                "Required": false,
+                "QualifierRef": "Code list qualifier"
+              },
+              {
+                "Id": "3055",
+                "Desc": "Code list responsible agency, coded",
+                "Required": false,
+                "QualifierRef": "Code list responsible agency, coded"
+              }
+            ]
           }
         ]
       },
@@ -8079,15 +7686,8 @@
             "DataType": "AN",
             "Required": false,
             "MinLength": 1,
-            "MaxLength": 70
-          },
-          {
-            "Id": "4052",
-            "Desc": "Terms of delivery or transport",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 70
+            "MaxLength": 70,
+            "Count": 2
           }
         ]
       }
@@ -8171,39 +7771,27 @@
         "Components": [
           {
             "Id": "7273",
-            "Desc": "Service requirement, coded",
-            "Required": true,
-            "QualifierRef": "Service requirement, coded"
-          },
-          {
-            "Id": "1131",
-            "Desc": "Code list qualifier",
-            "Required": false,
-            "QualifierRef": "Code list qualifier"
-          },
-          {
-            "Id": "3055",
-            "Desc": "Code list responsible agency, coded",
-            "Required": false,
-            "QualifierRef": "Code list responsible agency, coded"
-          },
-          {
-            "Id": "7273",
-            "Desc": "Service requirement, coded",
-            "Required": false,
-            "QualifierRef": "Service requirement, coded"
-          },
-          {
-            "Id": "1131",
-            "Desc": "Code list qualifier",
-            "Required": false,
-            "QualifierRef": "Code list qualifier"
-          },
-          {
-            "Id": "3055",
-            "Desc": "Code list responsible agency, coded",
-            "Required": false,
-            "QualifierRef": "Code list responsible agency, coded"
+            "Count": 2,
+            "Group": [
+              {
+                "Id": "7273",
+                "Desc": "Service requirement, coded",
+                "Required": true,
+                "QualifierRef": "Service requirement, coded"
+              },
+              {
+                "Id": "1131",
+                "Desc": "Code list qualifier",
+                "Required": false,
+                "QualifierRef": "Code list qualifier"
+              },
+              {
+                "Id": "3055",
+                "Desc": "Code list responsible agency, coded",
+                "Required": false,
+                "QualifierRef": "Code list responsible agency, coded"
+              }
+            ]
           }
         ]
       },
@@ -8850,15 +8438,8 @@
             "DataType": "AN",
             "Required": false,
             "MinLength": 1,
-            "MaxLength": 35
-          },
-          {
-            "Id": "7036",
-            "Desc": "Characteristic",
-            "DataType": "AN",
-            "Required": false,
-            "MinLength": 1,
-            "MaxLength": 35
+            "MaxLength": 35,
+            "Count": 2
           }
         ]
       },
