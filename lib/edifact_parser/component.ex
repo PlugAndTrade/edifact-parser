@@ -41,6 +41,22 @@ defmodule EdifactParser.Component do
     end
   end
 
+  def parse({state, components}, tokens, [%{"Count" => count} = comp_def | comp_defs]) do
+    {repeated_tokens, remaining_tokens} = Enum.split(tokens, count)
+    result = repeated_tokens |> Enum.map(&parse_one(state, &1, comp_def)) |> Utils.reduce_result()
+
+    case result do
+      {:ok, repeated_components} ->
+        component =
+          repeated_components |> Enum.reduce({"", []}, fn {k, v}, {_, vs} -> {k, vs ++ [v]} end)
+
+        parse({state, [component | components]}, remaining_tokens, comp_defs)
+
+      {:error, _} = err ->
+        err
+    end
+  end
+
   def parse({state, components}, [comp_token | comp_tokens], [comp_def | comp_defs]) do
     case parse_one(state, comp_token, comp_def) do
       {:ok, component} -> parse({state, [component | components]}, comp_tokens, comp_defs)

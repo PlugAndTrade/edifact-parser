@@ -122,6 +122,33 @@ defmodule EdifactParser.ComponentTest do
              )
   end
 
+  test "parse repeated components" do
+    components = [
+      "foo",
+      "bar",
+      "baz"
+    ]
+
+    defs = [
+      %{"Id" => "repeated", "Count" => 3, "Desc" => "repeated description"},
+    ]
+
+    expected = %{
+      "repeated" => [
+        %{"val" => "foo", "desc" => "repeated description"},
+        %{"val" => "bar", "desc" => "repeated description"},
+        %{"val" => "baz", "desc" => "repeated description"},
+      ]
+    }
+
+    assert {:ok, expected} ==
+             EdifactParser.Component.parse(
+               %{charset: :ascii},
+               components,
+               defs
+             )
+  end
+
   test "parse components one group" do
     components = ["foo", "bar", "baz"]
 
